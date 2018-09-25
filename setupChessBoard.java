@@ -5,17 +5,22 @@ public class  setupChessBoard {
 	
 	public static void main (String [] args) {
 	
+		ChessBoard myBoard = new ChessBoard();
+		// ChessPiece queen = new ChessPiece("q");
+		// myBoard.setPiece(queen, 'g', 5);
+		
 		//ArrayList<ChessBoard> pieces = new ArrayList<ChessBoard>(32); //create 32 pieces, 16 for both players
 		//ChessBoard<String> pieces = new ArrayList<String>(32);
 		
 		//global variables
-		ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
-		ArrayList<ChessBoard> pieces = new ArrayList<ChessBoard>(32); //create 32 pieces, 16 for both players
+		// ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
+		// ArrayList<ChessBoard> pieces = new ArrayList<ChessBoard>(32); //create 32 pieces, 16 for both players
 		
 		// Add pieces to array list.
 		//boolean add(Object o) : This method appends the specified element to the end of the arr list. 
 		//.add - method for arrays - here creates array of objs of class ChessBoard
 	
+		myBoard.showGameStateWithNotation();
 	
 		/*void createPieces() {
 			//add eight pawns for both colors
@@ -65,11 +70,11 @@ public class  setupChessBoard {
 		// prints all the elements available in list  - BUT USED ONLY for ARRAYS!!!
 		*/
 		
-        for (ChessBoard piece : pieces) { 
+        // for (ChessBoard piece : pieces) { 
 		
-			String print = piece.printInfo();
-            System.out.println(" " + print + " ");  
-        } 
+			// String print = piece.printInfo();
+            // System.out.println(" " + print + " ");  
+        // } 
 		
 		/*
 		
