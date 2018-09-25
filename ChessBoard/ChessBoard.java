@@ -256,4 +256,20 @@ public class ChessBoard {
 		pieces.add(new ChessBoard("B", "K", 4, 0)); //black king e1
 		pieces.add(new ChessBoard("W", "K", 4, 7)); //white king e8
 	}
+	
+	
+	// Get all pieces as an arraylist.
+	public ArrayList<ChessBoard> getPieces() {
+		return pieces;
+	}
+	
+	// Set arraylist wich contains all pieces.
+	 
+	public void setPieces(ArrayList<ChessBoard> pieces) {
+		this.pieces = pieces;
+	}
+
+	
+	
+	
 }
