@@ -1,4 +1,5 @@
 package ChessBoard;
+import java.util.*;
 
 public class ChessBoard {
 	
@@ -10,9 +11,17 @@ public class ChessBoard {
 	private int column; 
 	private int row;
 	
+	//global variables
+	ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
+	ArrayList<ChessBoard> pieces = new ArrayList<ChessBoard>(32); //create 32 pieces, 16 for both players
+		
 	
 	// Default constructor.
+	// public ChessBoard() {
+	// }
+	// Constructor.
 	public ChessBoard() {
+		initBoard(); //places pieces on the board 
 	}
 	
 	//Constructor. Defines piece color, type and position.
@@ -130,6 +139,37 @@ public class ChessBoard {
     public void setPieceType(String name){
 	   this.name=name;
     }
+		
+	
+	/*
+	 Shows the current game state which is 8x8 board with pieces on it.
+	 Shows notation on each side.
+	 */
+	public void showGameStateWithNotation() {
+		System.out.println();
+		System.out.println("     a  b  c  d  e  f  g  h"); //alphabetic notation
+		System.out.println("  ###########################");
+		for (int i=0; i<=7; i++) { //rows
+			System.out.print(8-i+" #|"); //all rows begin with a divider
+			for (int j=0; j<=7; j++) { //columns
+				if (board[i][j] == null) { //if empty square
+					System.out.print("  "); //print empty string
+					System.out.print("|"); //print divider
+				} else {
+					System.out.print(board[i][j].getRowAcronym()); //print acronym
+					System.out.print("|"); //print divider
+				}
+			}
+			System.out.println("# " +(8-i)); //next row
+			if (i!=7) {
+				System.out.println("  #|-----------------------|#"); //linebreak between rows
+			}
+		}
+		System.out.println("  ###########################");
+		System.out.println("     a  b  c  d  e  f  g  h"); //alphabetic notation
+		System.out.println();
+	}
+	
 	
 	
 	//to print 2 returned values of array (not memory location) use additional: var []= getPosition();
@@ -171,48 +211,10 @@ public class ChessBoard {
 	}
 	
 	
-	public class ChessBoard {
+	// public class ChessBoard {
 
-		//global variables
-		private Piece[][] board = new Piece[8][8]; //to show game status in text based version
-		private ArrayList<Piece> pieces = new ArrayList<Piece>(32); //create 32 pieces, 16 for both players
-		
-		/**
-		 * Constructor.
-		 */
-		public ChessBoard() {
-			initBoard(); //places pieces on the board 
-		}
-		/*
-		 Shows the current game state which is 8x8 board with pieces on it.
-		 Shows notation on each side.
-		 */
-		public void showGameStateWithNotation() {
-			System.out.println();
-			System.out.println("     a  b  c  d  e  f  g  h"); //alphabetic notation
-			System.out.println("  ###########################");
-			for (int i=0; i<=7; i++) { //rows
-				System.out.print(8-i+" #|"); //all rows begin with a divider
-				for (int j=0; j<=7; j++) { //columns
-					if (board[i][j] == null) { //if empty square
-						System.out.print("  "); //print empty string
-						System.out.print("|"); //print divider
-					} else {
-						System.out.print(board[i][j].getAcronym()); //print acronym
-						System.out.print("|"); //print divider
-					}
-				}
-				System.out.println("# " +(8-i)); //next row
-				if (i!=7) {
-					System.out.println("  #|-----------------------|#"); //linebreak between rows
-				}
-			}
-			System.out.println("  ###########################");
-			System.out.println("     a  b  c  d  e  f  g  h"); //alphabetic notation
-			System.out.println();
-		}
 	
-	}
+	// }
 	
 	/**
 	 * Create piece objects and populate the board with them.
@@ -222,5 +224,36 @@ public class ChessBoard {
 	//	emptyBoard(); //removes the board from pieces
 		createPieces(); //creates piece objects
 	//	populateBoard(); //populates the board with piece objects
+	}
+	
+	void createPieces() {
+		//add eight pawns for both colors
+		for (int i=0; i<8; i++) { 
+			// constructor: ChessBoard(String color, String name, int row, int column)
+			pieces.add(new ChessBoard("B", "P", i, 1)); //black pawns to 2nd row 
+			pieces.add(new ChessBoard("W", "P", i, 6)); //white pawns to 7 row
+		}
+		// Create new objects (chess pieces) with help of constructor
+		//populate rooks
+		pieces.add(new ChessBoard("B", "R", 0, 0)); //black rook a1
+		pieces.add(new ChessBoard("B", "R", 7, 0)); //black rook h1
+		pieces.add(new ChessBoard("W", "R", 0, 7)); //white rook a8
+		pieces.add(new ChessBoard("W", "R", 7, 7)); //white rook h8
+		//populate knights
+		pieces.add(new ChessBoard("B", "N", 1, 0)); //black knight b1
+		pieces.add(new ChessBoard("B", "N", 6, 0)); //black knight g1
+		pieces.add(new ChessBoard("W", "N", 1, 7)); //white knight b8
+		pieces.add(new ChessBoard("W", "N", 6, 7)); //white knight g8
+		//populate bishops
+		pieces.add(new ChessBoard("B", "B", 2, 0)); //black bishop c1
+		pieces.add(new ChessBoard("B", "B", 5, 0)); //black bishop f1
+		pieces.add(new ChessBoard("W", "B", 2, 7)); //white bishop c8
+		pieces.add(new ChessBoard("W", "B", 5, 7)); //white bishop f8
+		//populate queens
+		pieces.add(new ChessBoard("B", "Q", 3, 0)); //black queen d1
+		pieces.add(new ChessBoard("W", "Q", 3, 7)); //white queen d8
+		//populate kings
+		pieces.add(new ChessBoard("B", "K", 4, 0)); //black king e1
+		pieces.add(new ChessBoard("W", "K", 4, 7)); //white king e8
 	}
 }
