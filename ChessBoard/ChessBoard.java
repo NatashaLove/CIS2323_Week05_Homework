@@ -5,18 +5,32 @@ import ChessPiece.*;
 public class ChessBoard {
 	
 	//global variables
-	ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
+	 
+	// ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
+	String[][] board = new String[8][8];
+	ArrayList<ChessPiece> pieces = new ArrayList<ChessPiece>(32); //create 32 pieces, 16 for both players
 	
 	//*******************
 	/*
 	GETTERS & SETTERS?
 */
-	// public ChessBoard getBoard(){
-		// return board;
+	// public ChessBoard getPiece(x, y){
+		// {}
 	// }
 	
-	// public void setBoard (ChessBoard board [][])  {
-		// this.board = board;
+	// public void setPiece (ChessPiece, x, y)  {
+		// {}
+		
+		
+		/**
+	 * Use arraylist to populate board.
+	 * For text based version.
+	 */
+	// private void populateBoard() {
+		// for (Piece p : pieces) { //white pieces left
+		    // board[p.getRow()][p.getCol()] = p; //place piece to board
+		// }	
+	// }
 		
 //********	
 		
@@ -31,6 +45,7 @@ public class ChessBoard {
 	
 */
 	//********************
+	
 	
 	// Default constructor.
 	// public ChessBoard() {
@@ -77,8 +92,6 @@ public class ChessBoard {
 		createPieces(); //creates piece objects
 	//	populateBoard(); //populates the board with piece objects
 	}
-	
-	ArrayList<ChessPiece> pieces = new ArrayList<ChessPiece>(32); //create 32 pieces, 16 for both players
 	
 	void createPieces() {
 		//add eight pawns for both colors
