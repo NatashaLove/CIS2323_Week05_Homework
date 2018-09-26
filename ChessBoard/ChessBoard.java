@@ -7,8 +7,21 @@ public class ChessBoard {
 	//global variables
 	 
 	// ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
-	String[][] board = new String[8][8];
+	ChessPiece[][] board = new ChessPiece[8][8];
 	ArrayList<ChessPiece> pieces = new ArrayList<ChessPiece>(32); //create 32 pieces, 16 for both players
+	
+	
+	
+		/**
+	 * !!!Use arraylist to populate board.
+	 * For text based version.
+	 */
+	// private void populateBoard() {
+		// for (Piece p : pieces) { //white pieces left
+		    // board[p.getRow()][p.getCol()] = p; //place piece to board
+		// }	
+	// }
+	
 	
 	//*******************
 	/*
@@ -22,15 +35,6 @@ public class ChessBoard {
 		// {}
 		
 		
-		/**
-	 * Use arraylist to populate board.
-	 * For text based version.
-	 */
-	// private void populateBoard() {
-		// for (Piece p : pieces) { //white pieces left
-		    // board[p.getRow()][p.getCol()] = p; //place piece to board
-		// }	
-	// }
 		
 //********	
 		
