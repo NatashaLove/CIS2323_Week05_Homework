@@ -10,7 +10,7 @@ public class ChessBoard {
 	//*******************
 	/*
 	GETTERS & SETTERS?
-	*/
+*/
 	// public ChessBoard getBoard(){
 		// return board;
 	// }
@@ -18,13 +18,18 @@ public class ChessBoard {
 	// public void setBoard (ChessBoard board [][])  {
 		// this.board = board;
 		
-	//********	
+//********	
 		
 	//	myBoard.setPiece(queen, 'g', 5);
 	//Setter methods some basic collision detection.
 	//???
-
+/*
+	public void setPiece(string, char, int) ??
+	{
 		
+	}
+	
+*/
 	//********************
 	
 	// Default constructor.
