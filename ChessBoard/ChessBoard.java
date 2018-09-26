@@ -98,7 +98,14 @@ public class ChessBoard {
 		this.pieces = pieces;
 	}
 
-	
+	// prints all the elements available in list  - BUT USED ONLY for ARRAYS!!!
+	public void printList() {
+	for (ChessPiece piece : pieces) { 
+		
+			String print = piece.printInfo();
+            System.out.println(" " + print + " ");  
+        }
+	}		
 	
 	
 }
