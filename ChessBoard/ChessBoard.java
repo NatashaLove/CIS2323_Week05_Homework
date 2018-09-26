@@ -6,6 +6,27 @@ public class ChessBoard {
 	
 	//global variables
 	ChessBoard[][] board = new ChessBoard[8][8]; //to show game status in text based version
+	
+	//*******************
+	/*
+	GETTERS & SETTERS?
+	*/
+	// public ChessBoard getBoard(){
+		// return board;
+	// }
+	
+	// public void setBoard (ChessBoard board [][])  {
+		// this.board = board;
+		
+	//********	
+		
+	//	myBoard.setPiece(queen, 'g', 5);
+	//Setter methods some basic collision detection.
+	//???
+
+		
+	//********************
+	
 	// Default constructor.
 	// public ChessBoard() {
 	// }
